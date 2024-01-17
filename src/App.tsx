@@ -1,14 +1,17 @@
-import { DrawerAppBar } from './components/DrawerAppBar'
+import { DrawerAppBar } from './components/DrawerAppBar';
 
-import { Main } from './components/main/Main'
+import { GlobalProvider } from './components/globalContext/GlobalProvider';
+import { Main } from './components/main/Main';
 
 function App() {
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <DrawerAppBar />
-      <Main />
-    </div>
-  )
+    <GlobalProvider>
+      <div style={{ width: '100%', height: '100%' }}>
+        <DrawerAppBar />
+        <Main />
+      </div>
+    </GlobalProvider>
+  );
 }
 
-export default App
+export default App;

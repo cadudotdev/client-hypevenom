@@ -1,14 +1,26 @@
-import { MainContainer } from './style'
+import { useContext, useEffect, useState } from 'react';
 
-const url = 'https://musicpro.live/s/1963624580107'
+import { MusicPro } from '../musicPro/MusicPro';
+import { MainContainer } from './style';
+import { GlobalContext } from '../globalContext/GlobalContext';
+import { TrackProps } from '../../types/services/musicPro';
 
 export function Main() {
+  const [, setAllTracks] = useState<TrackProps[]>();
+  const [currentTrack, setCurrentTrack] = useState<TrackProps>();
+  const globalContext = useContext(GlobalContext);
+
+  useEffect(() => {
+    const { musicProInstance } = globalContext.services;
+    const tracks = musicProInstance.getAllTracks();
+
+    setAllTracks(tracks);
+    setCurrentTrack(tracks[0]);
+  }, []);
+
   return (
     <MainContainer>
-      <iframe
-        style={{ width: '100%', height: '100%', overflow: 'hidden' }}
-        src={url}
-      ></iframe>
+      <MusicPro track={currentTrack ?? null} />
     </MainContainer>
-  )
+  );
 }

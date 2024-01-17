@@ -24,7 +24,7 @@ interface Props {
 
 const siteName = 'HypeVenom Records'
 const drawerWidth = 240
-const navItems = ['Início', 'Produtos', 'Sobre', 'Contato']
+const navItems = ['Início', 'Produtos', 'Artistas', 'Sobre', 'Contatos']
 
 export function DrawerAppBar(props: Props) {
   const { window } = props
