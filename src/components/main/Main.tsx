@@ -1,15 +1,13 @@
-import { MusicPro } from '../musicPro/MusicPro';
 import { MainContainer } from './style';
-import { MusicListBar } from '../musicListBar/MusicListBar';
 import { TrackProvider } from '../trackContext/TrackProvider';
+import { Router } from '../router/Router';
 
 export function Main() {
   return (
     <TrackProvider>
       {
         <MainContainer>
-          <MusicListBar />
-          <MusicPro />
+          <Router />
         </MainContainer>
       }
     </TrackProvider>
