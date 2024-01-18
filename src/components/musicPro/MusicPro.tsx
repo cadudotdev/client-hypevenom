@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { MusicProContainer, IframeContainer } from './style';
 import { Modal, Box, Typography } from '@mui/material';
 
 import { Loader } from '../loader/Loader';
-import { MusicProProps } from '../../types/components/musicPro';
+import { TrackContext } from '../trackContext/TrackContext';
 
 const style = {
   position: 'absolute',
@@ -17,9 +17,10 @@ const style = {
   p: 4,
 };
 
-export function MusicPro({ track }: MusicProProps) {
+export function MusicPro() {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [open, setOpen] = useState(false);
+  const trackContext = useContext(TrackContext);
   // const handleOpen = () => setOpen(true)
 
   const handleClose = () => setOpen(false);
@@ -27,10 +28,14 @@ export function MusicPro({ track }: MusicProProps) {
     setLoaded(true);
   };
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [trackContext.selectedTrack]);
+
   return (
     <MusicProContainer>
       <Loader loaded={loaded} />
-      {track ? (
+      {trackContext.selectedTrack ? (
         <>
           <Modal
             open={open}
@@ -50,7 +55,7 @@ export function MusicPro({ track }: MusicProProps) {
           <IframeContainer
             style={{ display: loaded ? 'block' : 'none' }}
             onLoad={handleOnLoad}
-            src={track.iframLink}
+            src={trackContext.selectedTrack.iframLink}
           />
         </>
       ) : null}

@@ -3,7 +3,7 @@ export interface IMusicPro {
   getAllTracks: () => TrackProps[];
 }
 
-interface ArtistsProps {
+export interface ArtistsProps {
   name: string;
 }
 

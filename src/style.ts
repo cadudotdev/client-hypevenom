@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
+import { createGlobalStyle } from 'styled-components';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 export const GlobalStyle = createGlobalStyle`
 /* Basic Reset  */
@@ -141,4 +141,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-`
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --music-selector-color: #F2F0D5;
+  --music-selector-bg-color: #455559;
+  --music-selector-hoover-bg-color: #262626;
+}
+`;
