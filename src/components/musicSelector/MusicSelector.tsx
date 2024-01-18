@@ -23,7 +23,7 @@ export function MusicSelector({
 
   return (
     <MusicSelectorContainer onClick={() => handleSelectTrack(trackId)}>
-      <TitleContainer>{index + 1 + ' ' + title}</TitleContainer>
+      <TitleContainer>{index + 1 + '# ' + title}</TitleContainer>
       <ArtistsContainer>
         {artists.map(({ name }, index) => (
           <span>{(index ? ', ' : ' ') + name}</span>
