@@ -1,12 +1,21 @@
-import { MusicListBar } from '../musicListBar/MusicListBar';
-import { MusicPro } from '../musicPro/MusicPro';
-import { RouterContainer } from './style';
+import { createBrowserRouter } from 'react-router-dom';
 
-export function Router() {
-  return (
-    <RouterContainer>
-      <MusicListBar />
-      <MusicPro />
-    </RouterContainer>
-  );
-}
+import { RouterContainer } from './style';
+import { Main } from '../main/Main';
+import { DrawerAppBar } from '../DrawerAppBar';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <RouterContainer>
+        <DrawerAppBar />
+        <Main />
+      </RouterContainer>
+    ),
+  },
+  {
+    path: '/torta',
+    element: <div>About</div>,
+  },
+]);

@@ -1,15 +1,15 @@
 import { MainContainer } from './style';
 import { TrackProvider } from '../trackContext/TrackProvider';
-import { Router } from '../router/Router';
+import { MusicListBar } from '../musicListBar/MusicListBar';
+import { MusicPro } from '../musicPro/MusicPro';
 
 export function Main() {
   return (
     <TrackProvider>
-      {
-        <MainContainer>
-          <Router />
-        </MainContainer>
-      }
+      <MainContainer>
+        <MusicListBar />
+        <MusicPro />
+      </MainContainer>
     </TrackProvider>
   );
 }
