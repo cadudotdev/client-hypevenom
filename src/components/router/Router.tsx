@@ -1,21 +1,26 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { RouterContainer } from './style';
 import { Main } from '../main/Main';
 import { DrawerAppBar } from '../DrawerAppBar';
+import { Artist } from '../artist/Artist';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/2',
     element: (
-      <RouterContainer>
+      <>
         <DrawerAppBar />
         <Main />
-      </RouterContainer>
+      </>
     ),
   },
   {
-    path: '/torta',
-    element: <div>About</div>,
+    path: '/',
+    element: (
+      <>
+        <DrawerAppBar />
+        <Artist />
+      </>
+    ),
   },
 ]);
