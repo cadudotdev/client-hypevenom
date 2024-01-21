@@ -1,17 +1,10 @@
-import { ArtistInfo } from '../artistInfo/ArtistInfo';
 import { MusicListBar } from '../musicListBar/MusicListBar';
 import { TrackProvider } from '../trackContext/TrackProvider';
-import {
-  ArtistContainer,
-  ArtistCardContainer,
-  ArtistNameContainer,
-  ArtistVisualContainer,
-  ArtistInfoContainer,
-  ArtistDescriptionContainer,
-  ArtistImageContainer,
-} from './style';
+import { ArtistContainer, ArtistCardContainer } from './style';
 
-import artist from '../../mocks/artist.json';
+import { ArtistQuery } from './ArtistQuery';
+
+const artistId = '1';
 
 export function Artist() {
   return (
@@ -20,22 +13,7 @@ export function Artist() {
         <MusicListBar />
         <ArtistContainer>
           <ArtistCardContainer>
-            <ArtistNameContainer>
-              <span>{`${artist.name}(${artist.arstistName})`}</span>
-            </ArtistNameContainer>
-            <ArtistVisualContainer>
-              <ArtistImageContainer>
-                <img src={artist.imageLink} alt={artist.arstistName} />
-              </ArtistImageContainer>
-              <ArtistInfoContainer>
-                <ArtistInfo />
-              </ArtistInfoContainer>
-            </ArtistVisualContainer>
-            <ArtistDescriptionContainer>
-              <span>Descrição</span>
-              <br />
-              <span>{artist.description}</span>
-            </ArtistDescriptionContainer>
+            <ArtistQuery id={artistId} />
           </ArtistCardContainer>
         </ArtistContainer>
       </>
