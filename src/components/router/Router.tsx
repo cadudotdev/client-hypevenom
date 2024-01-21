@@ -6,7 +6,7 @@ import { Artist } from '../artist/Artist';
 
 export const router = createBrowserRouter([
   {
-    path: '/2',
+    path: '/',
     element: (
       <>
         <DrawerAppBar />
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: '/',
+    path: '/artist',
     element: (
       <>
         <DrawerAppBar />
