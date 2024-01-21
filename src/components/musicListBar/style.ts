@@ -12,7 +12,6 @@ export const MenuContainer = styled.div`
 `;
 
 export const MusicListBarContainer = styled.div`
-  margin-top: 64px;
   padding: 5px;
   height: 45px;
   display: flex;
