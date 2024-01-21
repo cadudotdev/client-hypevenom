@@ -14,12 +14,17 @@ export const ArtistCardContainer = styled.div`
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #262626;
+  background-color: var(--arstist-card-bg-color);
   box-shadow: 2px 2px 15px #000000;
 `;
 
 export const ArtistNameContainer = styled.div`
   margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
   font-size: 20px;
   text-align: center;

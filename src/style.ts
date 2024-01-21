@@ -149,5 +149,7 @@ table {
   --music-selector-color: #F2F0D5;
   --music-selector-bg-color: #455559;
   --music-selector-hoover-bg-color: #262626;
+
+  --arstist-card-bg-color: #262626;
 }
 `;
