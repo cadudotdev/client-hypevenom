@@ -18,10 +18,6 @@ export const MusicListBarContainer = styled.div`
   align-items: center;
   background-color: #262626;
 
-  @media only screen and (max-width: 600px) {
-    margin-top: 56px;
-  }
-
   :hover {
     background-color: var(--music-selector-hoover-bg-color);
     border: 1px solid #ffffff;

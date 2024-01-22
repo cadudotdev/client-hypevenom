@@ -7,6 +7,5 @@ export const MusicProContainer = styled.div`
 export const IframeContainer = styled.iframe`
   padding-bottom: 64px;
   width: inherit;
-  height: inherit;
-  overflow: 'hidden';
+  height: 94%;
 `;
