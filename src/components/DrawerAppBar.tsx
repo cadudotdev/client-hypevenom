@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,11 +26,42 @@ interface Props {
 
 const siteName = 'HypeVenom Records';
 const drawerWidth = 240;
-const navItems = ['Início', 'Artistas', 'Sobre', 'Contatos'];
+
+interface NavActionProps {
+  title: string;
+  onClick: (() => void) | null;
+}
 
 export function DrawerAppBar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [navActions, setNavActions] = useState<NavActionProps[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setNavActions([
+      {
+        title: 'Início',
+        onClick: () => handleRedirectTo('/'),
+      },
+      {
+        title: 'Artistas',
+        onClick: () => handleRedirectTo('/artists'),
+      },
+      {
+        title: 'Sobre',
+        onClick: () => handleRedirectTo('/about'),
+      },
+      {
+        title: 'Contatos',
+        onClick: null,
+      },
+    ]);
+  }, []);
+
+  const handleRedirectTo = (path: string) => {
+    navigate(path);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -41,10 +74,14 @@ export function DrawerAppBar(props: Props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navActions.map(({ title, onClick }) => (
+          <ListItem
+            key={title}
+            onClick={() => onClick && onClick()}
+            disablePadding
+          >
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={title} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -77,9 +114,13 @@ export function DrawerAppBar(props: Props) {
             {siteName}
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+            {navActions.map(({ title, onClick }) => (
+              <Button
+                key={title}
+                onClick={() => onClick && onClick()}
+                sx={{ color: '#fff' }}
+              >
+                {title}
               </Button>
             ))}
           </Box>
