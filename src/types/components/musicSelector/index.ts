@@ -5,4 +5,5 @@ export interface MusicSelectorProps {
   title: string;
   artists: ArtistsProps[];
   index: number;
+  onClick: () => void;
 }

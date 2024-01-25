@@ -1,17 +1,18 @@
 import { useContext } from 'react';
 import { MusicSelectorProps } from '../../types/components/musicSelector';
+import { TrackContext } from '../trackContext/TrackContext';
 import {
+  ArtistsContainer,
   MusicSelectorContainer,
   TitleContainer,
-  ArtistsContainer,
 } from './style';
-import { TrackContext } from '../trackContext/TrackContext';
 
 export function MusicSelector({
   trackId,
   title,
   artists,
   index,
+  onClick,
 }: MusicSelectorProps) {
   const trackContext = useContext(TrackContext);
   const handleSelectTrack = (id: string) => {
@@ -22,7 +23,9 @@ export function MusicSelector({
   };
 
   return (
-    <MusicSelectorContainer onClick={() => handleSelectTrack(trackId)}>
+    <MusicSelectorContainer
+      onClick={() => (handleSelectTrack(trackId), onClick())}
+    >
       <TitleContainer>{index + 1 + '# ' + title}</TitleContainer>
       <ArtistsContainer>
         {artists.map(({ name }, index) => (
