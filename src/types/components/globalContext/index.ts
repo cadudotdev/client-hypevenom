@@ -9,6 +9,8 @@ export interface GlobalContextProps {
   services: ServicesProps;
   openModalContact: boolean;
   setOpenModalContact: Dispatch<SetStateAction<boolean>>;
+  openModalMusicMenu: boolean;
+  setOpenModalMusicMenu: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface GlobalProviderProps {
