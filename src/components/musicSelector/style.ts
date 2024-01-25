@@ -5,7 +5,7 @@ export const MusicSelectorContainer = styled.div`
   padding: 0px 5px;
   height: 40px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   color: var(--music-selector-color);
   background-color: var(--music-selector-bg-color);
   cursor: pointer;
@@ -16,7 +16,21 @@ export const MusicSelectorContainer = styled.div`
   :hover {
     border: none;
   }
+
+  img {
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+    width: 30px;
+    border-radius: 4px;
+  }
 `;
+
+export const MusicSelectorContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const TitleContainer = styled.span`
   padding-left: 5px;
   font-size: 14px;

@@ -13,4 +13,5 @@ export interface TrackProps {
   artists: ArtistsProps[];
   releaseDate: number;
   iframLink: string;
+  imageLink: string;
 }

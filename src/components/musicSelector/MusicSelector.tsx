@@ -4,6 +4,7 @@ import { TrackContext } from '../trackContext/TrackContext';
 import {
   ArtistsContainer,
   MusicSelectorContainer,
+  MusicSelectorContentContainer,
   TitleContainer,
 } from './style';
 
@@ -11,6 +12,7 @@ export function MusicSelector({
   trackId,
   title,
   artists,
+  imageLink,
   index,
   onClick,
 }: MusicSelectorProps) {
@@ -26,12 +28,17 @@ export function MusicSelector({
     <MusicSelectorContainer
       onClick={() => (handleSelectTrack(trackId), onClick())}
     >
-      <TitleContainer>{index + 1 + '# ' + title}</TitleContainer>
-      <ArtistsContainer>
-        {artists.map(({ name }, index) => (
-          <span>{(index ? ', ' : ' ') + name}</span>
-        ))}
-      </ArtistsContainer>
+      <div>
+        <img src={imageLink} alt={title} />
+      </div>
+      <MusicSelectorContentContainer>
+        <TitleContainer>{index + 1 + '# ' + title}</TitleContainer>
+        <ArtistsContainer>
+          {artists.map(({ name }, index) => (
+            <span>{(index ? ', ' : ' ') + name}</span>
+          ))}
+        </ArtistsContainer>
+      </MusicSelectorContentContainer>
     </MusicSelectorContainer>
   );
 }
