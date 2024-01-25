@@ -5,6 +5,7 @@ import { GlobalStyle } from './style.ts';
 import { GlobalProvider } from './components/globalContext/GlobalProvider.tsx';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './components/router/Router.tsx';
+import { TrackProvider } from './components/trackContext/TrackProvider.tsx';
 
 const client = new QueryClient();
 
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <HeaderProvider>
       <GlobalProvider>
         <QueryClientProvider client={client}>
-          <RouterProvider router={router} />
+          <TrackProvider>
+            <RouterProvider router={router} />
+          </TrackProvider>
         </QueryClientProvider>
       </GlobalProvider>
     </HeaderProvider>

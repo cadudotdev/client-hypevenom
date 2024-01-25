@@ -5,6 +5,7 @@ import { DrawerAppBar } from '../DrawerAppBar';
 import { Artist } from '../artist/Artist';
 import { Artists } from '../artists/Artists';
 import { HeaderSeparator } from '../headerSeparator/HeaderSeparator';
+import { About } from '../about/About';
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,16 @@ export const router = createBrowserRouter([
         <DrawerAppBar />
         <HeaderSeparator />
         <Artists />
+      </>
+    ),
+  },
+  {
+    path: '/about',
+    element: (
+      <>
+        <DrawerAppBar />
+        <HeaderSeparator />
+        <About />
       </>
     ),
   },
