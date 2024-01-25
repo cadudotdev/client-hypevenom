@@ -24,13 +24,15 @@ export function MusicListBar() {
       <MenuContainer className="track-menu-container">
         <Menu />
       </MenuContainer>
-      {trackContext.allTracks.map(({ id, title, artists }, index) => (
-        <MusicSelector
-          onClick={() => handleOnClick(id)}
-          key={id}
-          {...{ trackId: id, title, artists, index }}
-        />
-      ))}
+      {trackContext.allTracks.map(
+        ({ id, title, artists, imageLink }, index) => (
+          <MusicSelector
+            onClick={() => handleOnClick(id)}
+            key={id}
+            {...{ trackId: id, title, artists, index, imageLink }}
+          />
+        )
+      )}
     </MusicListBarContainer>
   );
 }
