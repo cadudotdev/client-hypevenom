@@ -1,5 +1,5 @@
-import { ReactNode, CSSProperties, useState } from 'react';
 import { Box, Modal as ModalContainer } from '@mui/material';
+import { CSSProperties, ReactNode } from 'react';
 
 const defaultStyle = {
   position: 'absolute',
@@ -15,12 +15,12 @@ const defaultStyle = {
 
 interface ModalProps {
   children: ReactNode;
+  open: boolean;
+  setOpen: (open: boolean) => void;
   style?: CSSProperties;
 }
 
-export function Modal({ children, style }: ModalProps) {
-  const [open, setOpen] = useState(true);
-
+export function Modal({ children, open, setOpen, style }: ModalProps) {
   const handleClose = () => setOpen(false);
 
   return (
