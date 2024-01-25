@@ -6,9 +6,11 @@ import { MusicSelector } from '../musicSelector/MusicSelector';
 import { TrackContext } from '../trackContext/TrackContext';
 import { Menu } from '@mui/icons-material';
 import { TrackProps } from '../../types/services/musicPro';
+import { GlobalContext } from './../globalContext/GlobalContext';
 
 export function MusicListBar() {
   const navigate = useNavigate();
+  const globalContext = useContext(GlobalContext);
   const trackContext = useContext(TrackContext);
 
   const handleOnClick = (id: string) => {
@@ -21,7 +23,12 @@ export function MusicListBar() {
 
   return (
     <MusicListBarContainer>
-      <MenuContainer className="track-menu-container">
+      <MenuContainer
+        onClick={() => {
+          globalContext.setOpenModalMusicMenu(true);
+        }}
+        className="track-menu-container"
+      >
         <Menu />
       </MenuContainer>
       {trackContext.allTracks.map(

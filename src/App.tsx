@@ -4,6 +4,7 @@ import { TrackProvider } from './components/trackContext/TrackProvider';
 
 import { ModalContact } from './components/modal/ModalContact.tsx';
 import { router } from './components/router/Router.tsx';
+import { ModalMusicMenu } from './components/modal/ModalMusicMenu.tsx';
 
 const client = new QueryClient();
 
@@ -14,6 +15,7 @@ export function App() {
         <>
           <RouterProvider router={router} />
           <ModalContact />
+          <ModalMusicMenu />
         </>
       </TrackProvider>
     </QueryClientProvider>
