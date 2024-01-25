@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { GlobalContext } from './globalContext/GlobalContext';
 
 interface Props {
   /**
@@ -36,6 +37,7 @@ export function DrawerAppBar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [navActions, setNavActions] = useState<NavActionProps[]>([]);
+  const globalContext = useContext(GlobalContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,7 +56,9 @@ export function DrawerAppBar(props: Props) {
       },
       {
         title: 'Contatos',
-        onClick: null,
+        onClick: () => {
+          globalContext.setOpenModalContact(true);
+        },
       },
     ]);
   }, []);

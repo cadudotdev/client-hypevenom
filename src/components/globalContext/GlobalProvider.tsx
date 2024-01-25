@@ -9,6 +9,7 @@ import { IMusicPro } from '../../types/services/musicPro';
 
 export function GlobalProvider({ children }: GlobalProviderProps) {
   const [instancies, setInstancies] = useState<ServicesProps>();
+  const [openModalContact, setOpenModalContact] = useState<boolean>(false);
 
   useEffect(() => {
     const musicProInstance: IMusicPro = new MusicProService(
@@ -27,6 +28,8 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
             services: {
               musicProInstance: instancies.musicProInstance,
             },
+            openModalContact,
+            setOpenModalContact,
           }}
         >
           {children}

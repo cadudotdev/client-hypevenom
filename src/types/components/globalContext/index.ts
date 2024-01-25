@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { IMusicPro } from '../../services/musicPro';
 
 export interface ServicesProps {
@@ -6,6 +7,8 @@ export interface ServicesProps {
 
 export interface GlobalContextProps {
   services: ServicesProps;
+  openModalContact: boolean;
+  setOpenModalContact: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface GlobalProviderProps {
