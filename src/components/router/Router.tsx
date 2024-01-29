@@ -7,53 +7,61 @@ import { Artists } from '../artists/Artists';
 import { HeaderSeparator } from '../headerSeparator/HeaderSeparator';
 import { Main } from '../main/Main';
 import { Development } from '../development/Development';
+import { blockSite } from '../../utils/applicationUtils';
 
-const devMode = true;
-
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <>
-        {devMode ? (
-          <Development />
-        ) : (
-          <>
-            <DrawerAppBar />
-            <HeaderSeparator />
-            <Main />
-          </>
-        )}
-      </>
-    ),
-  },
-  {
-    path: '/artist',
-    element: (
-      <>
-        <DrawerAppBar />
-        <Artist />
-      </>
-    ),
-  },
-  {
-    path: '/artists',
-    element: (
-      <>
-        <DrawerAppBar />
-        <HeaderSeparator />
-        <Artists />
-      </>
-    ),
-  },
-  {
-    path: '/about',
-    element: (
-      <>
-        <DrawerAppBar />
-        <HeaderSeparator />
-        <About />
-      </>
-    ),
-  },
-]);
+export const router = createBrowserRouter(
+  blockSite()
+    ? [
+        {
+          path: '/',
+          element: <Development />,
+        },
+      ]
+    : [
+        {
+          path: '/',
+          element: (
+            <>
+              {blockSite() ? (
+                <Development />
+              ) : (
+                <>
+                  <DrawerAppBar />
+                  <HeaderSeparator />
+                  <Main />
+                </>
+              )}
+            </>
+          ),
+        },
+        {
+          path: '/artist',
+          element: (
+            <>
+              <DrawerAppBar />
+              <Artist />
+            </>
+          ),
+        },
+        {
+          path: '/artists',
+          element: (
+            <>
+              <DrawerAppBar />
+              <HeaderSeparator />
+              <Artists />
+            </>
+          ),
+        },
+        {
+          path: '/about',
+          element: (
+            <>
+              <DrawerAppBar />
+              <HeaderSeparator />
+              <About />
+            </>
+          ),
+        },
+      ]
+);
